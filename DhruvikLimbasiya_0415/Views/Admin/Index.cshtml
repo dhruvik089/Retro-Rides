@@ -1,0 +1,130 @@
+﻿@model IEnumerable<DhruvikLimbasiya_0415.Model.DbContext.BikeDetails>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+@if (TempData["login"] != null)
+{
+    <script>
+		toastr.success('@TempData["login"]')
+    </script>
+}
+<p class="btn btn-outline-primary">
+    @Html.ActionLink("Create New", "Create", "Admin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KilometresDriven)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrls)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SellerPhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KilometresDriven)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @{ var carouselId = ""; }
+                @{ var images = item.ImageUrls?.Split(',');
+                    if (images != null && images.Any())
+                    {                      
+                        carouselId = "carousel" + item.BikeId; 
+                    } }
+                @if (images != null && images.Any())
+                {
+                    <div id="@carouselId" class="carousel slide" data-bs-ride="carousel" style="width: 100px;">
+                        <div class="carousel-inner">
+                            @{ var isFirst = true;
+                                foreach (var img in images)
+                                {
+                                    <div class="carousel-item @(isFirst ? "active" : "")">
+                                        <img src="@Url.Content("~/Content/BikeImage/" + img)"
+                                             class="d-block w-100 img-thumbnail"
+                                             style="height: 100px; object-fit: cover; border-radius:20px;"
+                                             alt="Bike Image" />
+                                    </div> isFirst = false;
+                                } }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#@carouselId" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#@carouselId" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>}
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SellerPhoneNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.BikeId }, htmlAttributes: new { @class = "btn btn-primary" })
+                @Html.ActionLink("Details", "Details", new { id = item.BikeId }, htmlAttributes: new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.BikeId }, htmlAttributes: new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>  
+</script>

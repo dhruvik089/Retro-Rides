@@ -1,0 +1,15 @@
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\DhruvikLimbasiya_0415.Repository.dll.config
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\DhruvikLimbasiya_0415.Repository.dll
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\DhruvikLimbasiya_0415.Repository.pdb
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\DhruvikLimbasiya_0415.Model.dll
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\EntityFramework.dll
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\DhruvikLimbasiya_0415.Model.pdb
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\DhruvikLimbasiya_0415.Model.dll.config
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\EntityFramework.xml
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\obj\Debug\DhruvikLimbasiya_0415.Repository.csproj.AssemblyReference.cache
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\obj\Debug\DhruvikLimbasiya_0415.Repository.csproj.CoreCompileInputs.cache
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\obj\Debug\DhruvikLimbasiya_0415.Repository.csproj.CopyComplete
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\obj\Debug\DhruvikLimbasiya_0415.Repository.dll
+C:\Users\sit415\Desktop\DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.Repository\obj\Debug\DhruvikLimbasiya_0415.Repository.pdb

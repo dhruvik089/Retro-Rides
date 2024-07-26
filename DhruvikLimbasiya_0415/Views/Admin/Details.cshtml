@@ -1,0 +1,94 @@
+﻿@model DhruvikLimbasiya_0415.Model.DbContext.BikeDetails
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+  
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="card-title">Bike Details</h2>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                @{
+                    var carouselId = "";
+                    var images = Model.ImageUrls?.Split(',');
+                    if (images != null && images.Any())
+                    {
+                        carouselId = "carousel" + Model.BikeId;
+                    }
+                }
+                @if (images != null && images.Any())
+                {
+                    <div id="@carouselId" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @{
+                                var isFirst = true;
+                                foreach (var img in images)
+                                {
+                                    <div class="carousel-item @(isFirst ? "active" : "")">
+                                        <img src="@Url.Content("~/Content/BikeImage/" + img)"
+                                             class="d-block w-100 img-fluid rounded"
+                                             style="object-fit: cover;"
+                                             alt="Bike Image" />
+                                    </div>
+                                    isFirst = false;
+                                }
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#@carouselId" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#@carouselId" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-6">
+                <dl class="row">
+                    <dt class="col-sm-4 fw-bold">Brand</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Brand)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Model</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Model)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Year</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Year)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Kilometres Driven</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.KilometresDriven)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Price</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Price)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Description</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Seller Name</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.SellerFirstName) @Html.DisplayFor(model => model.SellerLastName)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Seller Email</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.SellerEmail)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Seller Phone Number</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.SellerPhoneNumber)</dd>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-end">
+
+            @Html.ActionLink("Edit", "Edit", new { id = Model.BikeId }, new { @class = "btn btn-outline-primary" }) 
+            @Html.ActionLink("Back to List", "index", null, new { @class = "btn btn-outline-secondary" })
+        </div>
+    </div>
+</div>
+

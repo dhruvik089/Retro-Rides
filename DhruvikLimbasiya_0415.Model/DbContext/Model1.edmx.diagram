@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e09a07ee46e7484093e38f48c5324b3a" Name="Diagram1">
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.City" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.Country" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.RegisterRide" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.State" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.Users" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.ZipCode" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK__City__state__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK__RegisterRi__city__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK__ZipCode__city__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK__RegisterR__Count__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK__State__CountryId__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK__RegisterR__state__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK__RegisterR__zipCo__68487DD7" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.BikeDetails" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DhruvikLimbasiya_0415Model.favorite_items" Width="1.5" PointX="12" PointY="4.375" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK_favorite_item" />
+        <AssociationConnector Association="DhruvikLimbasiya_0415Model.FK_favorite_user" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

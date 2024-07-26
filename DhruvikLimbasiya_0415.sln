@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34729.46
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DhruvikLimbasiya_0415", "DhruvikLimbasiya_0415\DhruvikLimbasiya_0415.csproj", "{B14055D4-0268-4676-A054-0337A06617BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DhruvikLimbasiya_0415.Model", "DhruvikLimbasiya_0415.Model\DhruvikLimbasiya_0415.Model.csproj", "{6BBC542D-DEAE-4E6D-A0B0-3483F41B2F70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DhruvikLimbasiya_0415.Helper", "DhruvikLimbasiya_0415.Helper\DhruvikLimbasiya_0415.Helper.csproj", "{656AACD3-FD9B-4705-9101-73007B7894F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DhruvikLimbasiya_0415.Repository", "DhruvikLimbasiya_0415.Repository\DhruvikLimbasiya_0415.Repository.csproj", "{0CBB0580-E748-4CAA-804F-757C6D2744AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DhruvikLimbasiya_0415.Api", "DhruvikLimbasiya_0415.Api\DhruvikLimbasiya_0415.Api.csproj", "{ECA6E803-51B1-48D9-A976-4B6B343FF885}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B14055D4-0268-4676-A054-0337A06617BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B14055D4-0268-4676-A054-0337A06617BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B14055D4-0268-4676-A054-0337A06617BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B14055D4-0268-4676-A054-0337A06617BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BBC542D-DEAE-4E6D-A0B0-3483F41B2F70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BBC542D-DEAE-4E6D-A0B0-3483F41B2F70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BBC542D-DEAE-4E6D-A0B0-3483F41B2F70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BBC542D-DEAE-4E6D-A0B0-3483F41B2F70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{656AACD3-FD9B-4705-9101-73007B7894F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{656AACD3-FD9B-4705-9101-73007B7894F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{656AACD3-FD9B-4705-9101-73007B7894F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{656AACD3-FD9B-4705-9101-73007B7894F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CBB0580-E748-4CAA-804F-757C6D2744AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBB0580-E748-4CAA-804F-757C6D2744AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBB0580-E748-4CAA-804F-757C6D2744AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBB0580-E748-4CAA-804F-757C6D2744AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA6E803-51B1-48D9-A976-4B6B343FF885}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA6E803-51B1-48D9-A976-4B6B343FF885}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA6E803-51B1-48D9-A976-4B6B343FF885}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA6E803-51B1-48D9-A976-4B6B343FF885}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEAE638C-590F-491C-981B-3074E6BF292E}
+	EndGlobalSection
+EndGlobal

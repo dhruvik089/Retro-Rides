@@ -1,0 +1,201 @@
+﻿@model DhruvikLimbasiya_0415.Model.ViewModel.RegistrationModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (TempData["registerFail"] != null)
+{
+    <script>
+		toastr.error('@TempData["registerFail"]')
+    </script>
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Registration</h2>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-12 col-lg-10">
+        <div class="wrap d-md-flex">
+            <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                <div class="text w-100">
+                    <h2>Welcome to login</h2>
+                    <p>Don't have an account?</p>
+                    @Html.ActionLink("Sign In", "Login", new { Controller = "Login" }, htmlAttributes: new { @class = "btn btn-white btn-outline-white " })
+                </div>
+            </div>
+            <div class="login-wrap p-4 p-lg-5">
+                <div class="d-flex">
+                    <div class="w-100">
+                        <h3 class="mb-4">Sign In</h3>
+                    </div>
+
+                </div>
+                <form method="post" class="signin-form" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter First Name" name="FirstName">
+                        @Html.ValidationMessageFor(m => m.FirstName, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for=" ">Middle Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Middle Name" name="MiddleName">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for=" ">Last Name </label>
+                        <input type="text" class="form-control" placeholder="Enter Last Name " name="LastName">
+                        @Html.ValidationMessageFor(m => m.LastName, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for="">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter Email" name="Email">
+                        @Html.ValidationMessageFor(m => m.Email, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for=" ">Phone Number</label>
+                        <input type="number" class="form-control" placeholder="Enter Phone Number" name="PhoneNumber">
+                        @Html.ValidationMessageFor(m => m.PhoneNumber, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for=" ">Date of birth</label>
+                        <input type="date" id="datedate" name="DateofBirth" class="form-control">
+                        @Html.ValidationMessageFor(m => m.DateofBirth, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for=" ">Address line one</label>
+                        <textarea placeholder="here addrese" name="Address"></textarea>
+                        @Html.ValidationMessageFor(m => m.Address, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for=" ">Address line two</label>
+                        <textarea placeholder="here addrese" name="AddressLineTwo"></textarea>
+                    </div>
+
+                    <div class="form-group mb-3 d-flex">
+                        <div>
+                            <label>Country</label>
+                            <select class="form-control" id="Country" name="Country">
+                                <option disabled selected>Select Country</option>
+                                @if (ViewBag.Country != null)
+                                {
+                                    foreach (var item in ViewBag.Country)
+                                    {
+                                        <option value=@item.CountryId>@item.CountryName</option>
+                                    }
+                                }
+                            </select>
+                            @Html.ValidationMessageFor(m => m.Country, "", htmlAttributes: new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            <label>State</label>
+                            <select class="form-control" id="State" name="State">
+                                <option value=" ">Select State</option>
+
+                            </select>
+                            @*  @Html.ValidationMessageFor(m => m.FirstName, "",htmlAttributes: new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                    <div class="form-group mb-3 d-flex">
+                        <div>
+                            <label>City</label>
+                            <select class="form-control" id="City" name="City">
+                                <option disabled selected>Select City</option>
+
+                            </select>
+                            @*   @Html.ValidationMessageFor(m => m.FirstName, "",htmlAttributes: new { @class = "text-danger" })*@
+                        </div>
+                        <div>
+                            <label>Zip Code</label>
+                            <select class="form-control" id="ZipCode" name="ZipCode">
+                                <option disabled selected>Select Zip</option>
+                            </select>
+                            @* @Html.ValidationMessageFor(m => m.FirstName, "",htmlAttributes: new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for=" ">Profile photo</label>
+                        <input type="file" class="form-control" name="ProfilePhoto">
+                        @Html.ValidationMessageFor(m => m.ProfilePhoto, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-primary submit px-3">Register</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    function AddState(data) {
+        for (var i = 0; i < data.length; i++) {
+            var options = `<option value= ${data[i].StateId} >  ${data[i].StateName} </option>`
+            $('#State').append(options);
+        }
+    }
+    function AddCity(data) {
+        for (var i = 0; i < data.length; i++) {
+            var options = `<option value= ${data[i].CityId}  >  ${data[i].CityName}  </option>`
+            $('#City').append(options);
+        }
+    }
+    function AddZipCode(data) {
+        for (var i = 0; i < data.length; i++) {
+            var options = `<option value= ${data[i].ZipId}  >  ${data[i].ZipCode}  </option>`
+            console.log(options)
+            $('#ZipCode').append(options);
+        }
+    }
+
+    $(document).ready(function () {
+        $('#Country').on('change', function () {
+            $('#State').html('<option>Select</option>')
+            $('#City').html('<option>Select</option>')
+            var CountryId = $('#Country').val();
+            $.ajax({
+                url: '/Login/GetStateByCountry?CountryId=' + CountryId,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    AddState(data)
+
+                }
+            })
+        })
+        $('#State').on('change', function () {
+            $('#City').html('<option>Select</option>')
+
+            var StateValue = $('#State').val();
+            $.ajax({
+                url: '/Login/GetCityStateId?StateId=' + StateValue,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    AddCity(data)
+                }
+            })
+        })
+        $('#City').on('change', function () {
+            $('#ZipCode').html('<option>Select</option>')
+
+            var CityValue = $('#City').val();
+            $.ajax({
+                url: '/Login/GetZipcodeByCityId?CityId=' + CityValue,
+                type: 'GET',
+                success: function (data) {
+                    console.log(data)
+                    AddZipCode(data)
+                }
+            })
+        })
+    })
+
+    var today = new Date();
+    $('#date').prop('max', new Date(today.getFullYear() - 18, today.getMonth(), today.getDate()).toLocaleDateString('en-CA'));
+</script>

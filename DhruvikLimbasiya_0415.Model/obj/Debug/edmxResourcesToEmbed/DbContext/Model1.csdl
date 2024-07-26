@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DhruvikLimbasiya_0415Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="Int32" />
+    <NavigationProperty Name="State1" Relationship="Self.FK__City__state__534D60F1" FromRole="City" ToRole="State" />
+    <NavigationProperty Name="RegisterRide" Relationship="Self.FK__RegisterRi__city__6754599E" FromRole="City" ToRole="RegisterRide" />
+    <NavigationProperty Name="ZipCode" Relationship="Self.FK__ZipCode__city__5629CD9C" FromRole="City" ToRole="ZipCode" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RegisterRide" Relationship="Self.FK__RegisterR__Count__656C112C" FromRole="Country" ToRole="RegisterRide" />
+    <NavigationProperty Name="State" Relationship="Self.FK__State__CountryId__5070F446" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="RegisterRide">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLineTwo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="state" Type="Int32" />
+    <Property Name="city" Type="Int32" />
+    <Property Name="zipCode" Type="Int32" />
+    <Property Name="profilePhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="City1" Relationship="Self.FK__RegisterRi__city__6754599E" FromRole="RegisterRide" ToRole="City" />
+    <NavigationProperty Name="Country1" Relationship="Self.FK__RegisterR__Count__656C112C" FromRole="RegisterRide" ToRole="Country" />
+    <NavigationProperty Name="State1" Relationship="Self.FK__RegisterR__state__66603565" FromRole="RegisterRide" ToRole="State" />
+    <NavigationProperty Name="ZipCode1" Relationship="Self.FK__RegisterR__zipCo__68487DD7" FromRole="RegisterRide" ToRole="ZipCode" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="favorite_items" Relationship="DhruvikLimbasiya_0415Model.FK_favorite_user" FromRole="RegisterRide" ToRole="favorite_items" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="Self.FK__City__state__534D60F1" FromRole="State" ToRole="City" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__State__CountryId__5070F446" FromRole="State" ToRole="Country" />
+    <NavigationProperty Name="RegisterRide" Relationship="Self.FK__RegisterR__state__66603565" FromRole="State" ToRole="RegisterRide" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ZipCode">
+    <Key>
+      <PropertyRef Name="ZipId" />
+    </Key>
+    <Property Name="ZipId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZipCode1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="Int32" />
+    <NavigationProperty Name="City1" Relationship="Self.FK__ZipCode__city__5629CD9C" FromRole="ZipCode" ToRole="City" />
+    <NavigationProperty Name="RegisterRide" Relationship="Self.FK__RegisterR__zipCo__68487DD7" FromRole="ZipCode" ToRole="RegisterRide" />
+  </EntityType>
+  <Association Name="FK__City__state__534D60F1">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="state" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegisterRi__city__6754599E">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="RegisterRide" Type="Self.RegisterRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="RegisterRide">
+        <PropertyRef Name="city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ZipCode__city__5629CD9C">
+    <End Role="City" Type="Self.City" Multiplicity="0..1" />
+    <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityId" />
+      </Principal>
+      <Dependent Role="ZipCode">
+        <PropertyRef Name="city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegisterR__Count__656C112C">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="RegisterRide" Type="Self.RegisterRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="RegisterRide">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__State__CountryId__5070F446">
+    <End Role="Country" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegisterR__state__66603565">
+    <End Role="State" Type="Self.State" Multiplicity="0..1" />
+    <End Role="RegisterRide" Type="Self.RegisterRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="RegisterRide">
+        <PropertyRef Name="state" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegisterR__zipCo__68487DD7">
+    <End Role="ZipCode" Type="Self.ZipCode" Multiplicity="0..1" />
+    <End Role="RegisterRide" Type="Self.RegisterRide" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZipCode">
+        <PropertyRef Name="ZipId" />
+      </Principal>
+      <Dependent Role="RegisterRide">
+        <PropertyRef Name="zipCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DhruvikLimbasiya_0415Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="RegisterRide" EntityType="Self.RegisterRide" />
+    <EntitySet Name="State" EntityType="Self.State" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <EntitySet Name="ZipCode" EntityType="Self.ZipCode" />
+    <AssociationSet Name="FK__City__state__534D60F1" Association="Self.FK__City__state__534D60F1">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegisterRi__city__6754599E" Association="Self.FK__RegisterRi__city__6754599E">
+      <End Role="City" EntitySet="City" />
+      <End Role="RegisterRide" EntitySet="RegisterRide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ZipCode__city__5629CD9C" Association="Self.FK__ZipCode__city__5629CD9C">
+      <End Role="City" EntitySet="City" />
+      <End Role="ZipCode" EntitySet="ZipCode" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegisterR__Count__656C112C" Association="Self.FK__RegisterR__Count__656C112C">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="RegisterRide" EntitySet="RegisterRide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__State__CountryId__5070F446" Association="Self.FK__State__CountryId__5070F446">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegisterR__state__66603565" Association="Self.FK__RegisterR__state__66603565">
+      <End Role="State" EntitySet="State" />
+      <End Role="RegisterRide" EntitySet="RegisterRide" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegisterR__zipCo__68487DD7" Association="Self.FK__RegisterR__zipCo__68487DD7">
+      <End Role="ZipCode" EntitySet="ZipCode" />
+      <End Role="RegisterRide" EntitySet="RegisterRide" />
+    </AssociationSet>
+    <EntitySet Name="BikeDetails" EntityType="DhruvikLimbasiya_0415Model.BikeDetails" />
+    <EntitySet Name="favorite_items" EntityType="DhruvikLimbasiya_0415Model.favorite_items" />
+    <AssociationSet Name="FK_favorite_item" Association="DhruvikLimbasiya_0415Model.FK_favorite_item">
+      <End Role="BikeDetails" EntitySet="BikeDetails" />
+      <End Role="favorite_items" EntitySet="favorite_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_favorite_user" Association="DhruvikLimbasiya_0415Model.FK_favorite_user">
+      <End Role="RegisterRide" EntitySet="RegisterRide" />
+      <End Role="favorite_items" EntitySet="favorite_items" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BikeDetails">
+    <Key>
+      <PropertyRef Name="BikeId" />
+    </Key>
+    <Property Name="BikeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Model" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="KilometresDriven" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ImageUrls" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SellerFirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SellerLastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SellerEmail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SellerPhoneNumber" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="favorite_items" Relationship="DhruvikLimbasiya_0415Model.FK_favorite_item" FromRole="BikeDetails" ToRole="favorite_items" />
+  </EntityType>
+  <EntityType Name="favorite_items">
+    <Key>
+      <PropertyRef Name="favorite_id" />
+    </Key>
+    <Property Name="favorite_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="BikeId" Type="Int32" Nullable="false" />
+    <Property Name="date_favorited" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BikeDetails" Relationship="DhruvikLimbasiya_0415Model.FK_favorite_item" FromRole="favorite_items" ToRole="BikeDetails" />
+    <NavigationProperty Name="RegisterRide" Relationship="DhruvikLimbasiya_0415Model.FK_favorite_user" FromRole="favorite_items" ToRole="RegisterRide" />
+  </EntityType>
+  <Association Name="FK_favorite_item">
+    <End Type="DhruvikLimbasiya_0415Model.BikeDetails" Role="BikeDetails" Multiplicity="1" />
+    <End Type="DhruvikLimbasiya_0415Model.favorite_items" Role="favorite_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BikeDetails">
+        <PropertyRef Name="BikeId" />
+      </Principal>
+      <Dependent Role="favorite_items">
+        <PropertyRef Name="BikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_favorite_user">
+    <End Type="DhruvikLimbasiya_0415Model.RegisterRide" Role="RegisterRide" Multiplicity="1" />
+    <End Type="DhruvikLimbasiya_0415Model.favorite_items" Role="favorite_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RegisterRide">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="favorite_items">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

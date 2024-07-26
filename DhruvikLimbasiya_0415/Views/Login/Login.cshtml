@@ -1,0 +1,65 @@
+﻿@model DhruvikLimbasiya_0415.Model.ViewModel.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (TempData["Loginfail"] != null)
+{
+    <script>
+		toastr.error('@TempData["Loginfail"]')
+    </script>
+}
+@if (TempData["register"] != null)
+{
+    <script>
+		toastr.success('@TempData["register"]')
+    </script>
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6 text-center mb-5">
+        <h2 class="heading-section">Login</h2>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-12 col-lg-10">
+        <div class="wrap d-md-flex">
+            <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                <div class="text w-100">
+                    <h2>Welcome to login</h2>
+                    <p>Don't have an account?</p>
+                    @Html.ActionLink("Sign Up", "Register", new { Controller = "Login" }, htmlAttributes: new { @class = "btn btn-white btn-outline-white " })
+                </div>
+            </div>
+            <div class="login-wrap p-4 p-lg-5">
+                <div class="d-flex">
+                    <div class="w-100">
+                        <h3 class="mb-4">
+                            Sign In
+                        </h3>
+                    </div>
+
+                </div>
+                <form method="post" class="signin-form">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Email</label>
+                        <input type="text" class="form-control" placeholder="Enter Email" name="Email">
+                        @Html.ValidationMessageFor(m => m.Email, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for="password">Password</label>
+                        <input type="password" class="form-control" placeholder="Password" name="Password">
+                        @Html.ValidationMessageFor(m => m.Password, "", htmlAttributes: new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

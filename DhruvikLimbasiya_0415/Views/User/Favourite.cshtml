@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DhruvikLimbasiya_0415.Model.ViewModel.FavouriteModel>
+@{
+    ViewBag.Title = "Favourite";
+    Layout = "~/Views/Shared/_DashboardLayoutPage.cshtml";
+}
+
+@if (TempData["RemoveFevourite"] != null)
+{
+    <script>
+		toastr.success('@TempData["RemoveFevourite"]')
+    </script>
+}
+
+<div class="d-flex">
+
+
+    @foreach (var item in ViewBag.itemList)
+    {
+
+        <div class="card m-3 shadow-lg bg-body rounded" style="width: 18rem;">
+
+            @{
+                string[] imageUrlArray = item.ImageUrls.Split(',');
+            }
+            <img src="@Url.Content("~/Content/BikeImage/"+imageUrlArray[0])" alt="image" class="card-img-top" />
+            <div class="card-body">
+                <h5 class="card-title">@item.Brand</h5>
+                <p class="card-text">@item.Description</p>
+                <div>
+                    @Html.ActionLink("Details", "Details", new { @Controller = "User", id = item.BikeId }, htmlAttributes: new { @class = "btn btn-outline-primary" })
+                    @Html.ActionLink("Remove Favorite", "RemoveFavourite", new { @Controller = "User", UserId = Convert.ToInt32(Session["UserId"]), itemId = item.BikeId }, htmlAttributes: new { @class = "btn btn-outline-primary" })
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

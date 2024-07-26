@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_DashboardLayoutPage.cshtml";
+}
+
+
+@if (TempData["login"] != null)
+{
+    <script>
+		toastr.success('@TempData["login"]')
+    </script>
+}
+
+
+<h2>Dashboard</h2>
+
